@@ -71,9 +71,11 @@ def run(cfg):
                     s['YORUBA'] = SS1_YORUBA[s['n']]
                 if cn == "SS 2" and s['n'] in SS2_YORUBA:
                     s['YORUBA'] = SS2_YORUBA[s['n']]
-                # Balogun: add Computer (test=35, exam=30, total=65)
-                if cn == "SS 2" and s['n'] == "Balogun Khadijat":
-                    s['Computer_Total'] = 65
+                # SS2 Computer: read CA/Exam from CSV
+                if cn == "SS 2":
+                    s['Computer_Total'] = int(r.get('Computer_Total', '0'))
+                    s['Computer_CA'] = int(r.get('Computer_CA', '0'))
+                    s['Computer_Exam'] = int(r.get('Computer_Exam', '0'))
                 stu.append(s)
     else:
         wb = load_workbook(os.path.join(base, data), data_only=True)
@@ -102,9 +104,11 @@ def run(cfg):
                 s['YORUBA'] = SS1_YORUBA[nm]
             if cn == "SS 2" and nm in SS2_YORUBA:
                 s['YORUBA'] = SS2_YORUBA[nm]
-            # Balogun: add Computer (test=35, exam=30, total=65)
-            if cn == "SS 2" and nm == "Balogun Khadijat":
-                s['Computer_Total'] = 65
+            # SS2 Computer: read CA/Exam from data
+            if cn == "SS 2":
+                s['Computer_Total'] = s.get('Computer_Total', 0)
+                s['Computer_CA'] = s.get('Computer_CA', 0)
+                s['Computer_Exam'] = s.get('Computer_Exam', 0)
             stu.append(s)
     
     if not stu: return
@@ -176,9 +180,15 @@ def run(cfg):
                 hv = round(ca - gv)
                 jv = tv - gv - hv
                 if jv > 60: jv = 60; hv = tv - gv - jv
-                ws.cell(row=rn, column=7).value = gv
-                ws.cell(row=rn, column=8).value = hv
-                ws.cell(row=rn, column=10).value = jv
+                # Use pre-split CA/Exam for Computer
+                if p == 'Computer_Total':
+                    ws.cell(row=rn, column=7).value = int(s.get('Computer_CA', 0))
+                    ws.cell(row=rn, column=8).value = int(s.get('Computer_Exam', 0))
+                    ws.cell(row=rn, column=10).value = 0
+                else:
+                    ws.cell(row=rn, column=7).value = gv
+                    ws.cell(row=rn, column=8).value = hv
+                    ws.cell(row=rn, column=10).value = jv
                 rr = sr[p].get(nm, 0)
                 rs = ORD[rr] if 1 <= rr <= len(stu) else ""
                 ws.cell(row=rn, column=16).value = rs
