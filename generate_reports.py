@@ -180,11 +180,16 @@ def run(cfg):
                 hv = round(ca - gv)
                 jv = tv - gv - hv
                 if jv > 60: jv = 60; hv = tv - gv - jv
-                # Use pre-split CA/Exam for Computer
+                # Computer: split CA into G+H, Exam goes to J
                 if p == 'Computer_Total':
-                    ws.cell(row=rn, column=7).value = int(s.get('Computer_CA', 0))
-                    ws.cell(row=rn, column=8).value = int(s.get('Computer_Exam', 0))
-                    ws.cell(row=rn, column=10).value = 0
+                    comp_ca = int(s.get('Computer_CA', 0))
+                    comp_ex = int(s.get('Computer_Exam', 0))
+                    gv = round(comp_ca / 2)
+                    hv = comp_ca - gv
+                    jv = comp_ex
+                    ws.cell(row=rn, column=7).value = gv
+                    ws.cell(row=rn, column=8).value = hv
+                    ws.cell(row=rn, column=10).value = jv
                 else:
                     ws.cell(row=rn, column=7).value = gv
                     ws.cell(row=rn, column=8).value = hv
