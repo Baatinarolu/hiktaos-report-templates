@@ -71,6 +71,9 @@ def run(cfg):
                     s['YORUBA'] = SS1_YORUBA[s['n']]
                 if cn == "SS 2" and s['n'] in SS2_YORUBA:
                     s['YORUBA'] = SS2_YORUBA[s['n']]
+                # Balogun: add Computer (test=35, exam=30, total=65)
+                if cn == "SS 2" and s['n'] == "Balogun Khadijat":
+                    s['Computer_Total'] = 65
                 stu.append(s)
     else:
         wb = load_workbook(os.path.join(base, data), data_only=True)
@@ -99,6 +102,9 @@ def run(cfg):
                 s['YORUBA'] = SS1_YORUBA[nm]
             if cn == "SS 2" and nm in SS2_YORUBA:
                 s['YORUBA'] = SS2_YORUBA[nm]
+            # Balogun: add Computer (test=35, exam=30, total=65)
+            if cn == "SS 2" and nm == "Balogun Khadijat":
+                s['Computer_Total'] = 65
             stu.append(s)
     
     if not stu: return
