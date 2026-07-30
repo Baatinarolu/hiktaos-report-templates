@@ -1,12 +1,12 @@
-Names,English_CA,English_Exam,English_Total,Maths_CA,Maths_Exam,Maths_Total,Economics_CA,Economics_Exam,Economics_Total,Agric_CA,Agric_Exam,Agric_Total,Commerce_CA,Commerce_Exam,Commerce_Total,Account_CA,Account_Exam,Account_Total,Chemistry_CA,Chemistry_Exam,Chemistry_Total,Physics_CA,Physics_Exam,Physics_Total,Literature_CA,Literature_Exam,Literature_Total,CRS_IRS_CA,CRS_IRS_Exam,CRS_IRS_Total,Biology_CA,Biology_Exam,Biology_Total,Civic_CA,Civic_Exam,Civic_Total,Government_CA,Government_Exam,Government_Total
-Alex Esther,27,40,67,25,33,58,32,46,78,36,36,72,,,,,,,,,,,,,25,41,66,40,34,74,,,,37,39,76,34,41,75
-Awolola Boluwatife,36,55,91,28,36,64,39,53,87,39,34,73,36,51,87,38,51,86,,,,,,,,,,,,,,,,41,56,77,30,44,74
-Shakiru Baraka,26,49,75,20,30,50,32,45,77,38,33,71,,,,,,,,,,,,,30,45,75,33,40,73,,,,39,43,82,35,43,78
-Jonah Happiness,27,39,66,22,35,57,32,48,80,37,33,70,,,,,,,,,,,,,32,37,69,40,30,70,,,,35,41,76,33,40,73
-Akinbile Fausat,20,44,54,21,31,52,33,36,69,24,43,67,,,,,,,,,,,,,25,34,59,22,43,65,,,,23,38,61,30,26,56
-Micheal Daniel,35,50,85,35,34,69,40,53,93,37,46,83,,,,,,,30,46,76,22,33,55,,,,,,,40,44,84,40,48,88,,,
-Adewale Abidemi,31,50,81,35,35,70,36,52,88,41,45,86,,,,,,,30,45,75,38,43,71,,,,,,,40,39,79,40,47,87,,,
-Balogun Khadijat,35,44,79,28,39,67,36,51,87,,,,,,,,,,,,,,,,28,58,86,33,53,77,,,,39,57,96,35,42,77
-Akorede Fathia,27,48,75,25,37,62,32,46,78,37,35,72,,,,,,,,,,,,,25,46,71,25,44,69,,,,39,45,84,34,45,79
-Daniel Deborah,28,45,73,20,30,50,32,40,72,23,41,64,,,,,,,,,,,,,25,46,71,40,32,72,38,43,81,35,43,78,34,45,79
-Egbordor Joseph,25,50,75,20,40,60,32,51,83,,,,,,,,,,37,35,72,29,30,59,,,,,,,,,,35,53,88,,,
+Names,English_CA,English_Exam,English_Total,Maths_CA,Maths_Exam,Maths_Total,Economics_CA,Economics_Exam,Economics_Total,Agric_CA,Agric_Exam,Agric_Total,Commerce_CA,Commerce_Exam,Commerce_Total,Account_CA,Account_Exam,Account_Total,Chemistry_CA,Chemistry_Exam,Chemistry_Total,Physics_CA,Physics_Exam,Physics_Total,Literature_CA,Literature_Exam,Literature_Total,CRS_IRS_CA,CRS_IRS_Exam,CRS_IRS_Total,Biology_CA,Biology_Exam,Biology_Total,Civic_CA,Civic_Exam,Civic_Total,Government_CA,Government_Exam,Government_Total,Yoruba_Total,Computer_Total,Grand_Total
+Alex Esther,27,40,67,25,33,58,32,46,78,36,36,72,,,,,,,,,,,,,25,41,66,40,34,74,,,,37,39,76,34,41,75,65,0,631
+Awolola Boluwatife,36,55,91,28,36,64,39,53,87,39,34,73,36,51,87,38,51,86,,,,,,,,,,,,,,,,41,56,77,30,44,74,80,0,719
+Shakiru Baraka,26,49,75,20,30,50,32,45,77,38,33,71,,,,,,,,,,,,,30,45,75,33,40,73,,,,39,43,82,35,43,78,85,0,666
+Jonah Happiness,27,39,66,22,35,57,32,48,80,37,33,70,,,,,,,,,,,,,32,37,69,40,30,70,,,,35,41,76,33,40,73,62,0,623
+Akinbile Fausat,20,44,54,21,31,52,33,36,69,24,43,67,,,,,,,,,,,,,25,34,59,22,43,65,,,,23,38,61,30,26,56,55,0,538
+Micheal Daniel,35,50,85,35,34,69,40,53,93,37,46,83,,,,,,,30,46,76,22,33,55,,,,,,,40,44,84,40,48,88,,,,82,0,715
+Adewale Abidemi,31,50,81,35,35,70,36,52,88,41,45,86,,,,,,,30,45,75,38,43,71,,,,,,,40,39,79,40,47,87,,,,83,0,720
+Balogun Khadijat,35,44,79,28,39,67,36,51,87,,,,,,,,,,,,,,,,28,58,86,33,53,77,,,,39,57,96,35,42,77,84,65,718
+Akorede Fathia,27,48,75,25,37,62,32,46,78,37,35,72,,,,,,,,,,,,,25,46,71,25,44,69,,,,39,45,84,34,45,79,75,0,665
+Daniel Deborah,28,45,73,20,30,50,32,40,72,23,41,64,,,,,,,,,,,,,25,46,71,40,32,72,38,43,81,35,43,78,34,45,79,72,0,712
+Egbordor Joseph,25,50,75,20,40,60,32,51,83,,,,,,,,,,37,35,72,29,30,59,,,,,,,,,,35,53,88,,,,68,0,505
