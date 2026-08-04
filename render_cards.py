@@ -302,20 +302,29 @@ def render(path):
 def main():
     os.makedirs(OUT_PDF, exist_ok=True)
     os.makedirs(OUT_JPG, exist_ok=True)
-    files=sorted(f for f in os.listdir(SRC) if f.startswith("Report_Card_") and f.endswith(".xlsx"))
-    # allow single-file arg for testing
-    if len(sys.argv)>1:
-        files=[f for f in files if sys.argv[1] in f] or files[:1]
-    print("Rendering %d cards..."%len(files))
-    for i,f in enumerate(files,1):
-        img=render(os.path.join(SRC,f))
-        stem=f[:-5]
-        img.save(os.path.join(OUT_JPG, stem+".jpg"), "JPEG", quality=82)
-        # PDF embeds a lightly downscaled image to keep total size in check
-        small=img.resize((int(img.size[0]*0.7), int(img.size[1]*0.7)),
-                         Image.LANCZOS)
-        small.save(os.path.join(OUT_PDF, stem+".pdf"), "PDF", resolution=150.0)
-        if i%10==0 or i==len(files): print("  %d/%d %s"%(i,len(files),stem))
+    # collect cards from per-class subfolders: (path, class_folder)
+    files = []
+    for cls in sorted(os.listdir(SRC)):
+        cd = os.path.join(SRC, cls)
+        if not os.path.isdir(cd):
+            continue
+        for f in sorted(os.listdir(cd)):
+            if f.startswith("Report_Card_") and f.endswith(".xlsx"):
+                files.append((os.path.join(cd, f), cls))
+    if len(sys.argv) > 1:   # optional filter substring for testing
+        files = [(p, c) for p, c in files if sys.argv[1] in p] or files[:1]
+    print("Rendering %d cards..." % len(files))
+    for i, (fp, cls) in enumerate(files, 1):
+        img = render(fp)
+        stem = os.path.basename(fp)[:-5]
+        jpg_dir = os.path.join(OUT_JPG, cls); os.makedirs(jpg_dir, exist_ok=True)
+        pdf_dir = os.path.join(OUT_PDF, cls); os.makedirs(pdf_dir, exist_ok=True)
+        img.save(os.path.join(jpg_dir, stem + ".jpg"), "JPEG", quality=82)
+        small = img.resize((int(img.size[0]*0.7), int(img.size[1]*0.7)),
+                           Image.LANCZOS)
+        small.save(os.path.join(pdf_dir, stem + ".pdf"), "PDF", resolution=150.0)
+        if i % 10 == 0 or i == len(files):
+            print("  %d/%d [%s] %s" % (i, len(files), cls, stem))
     print("Done. ->", OUT_JPG, "and", OUT_PDF)
 
 if __name__=="__main__":

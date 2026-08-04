@@ -53,7 +53,7 @@ def run(cfg):
     cn, nx, tot, tmpl, data, csv_m, suf, sm, ren, summ_start, max_subj_row = cfg
     base = os.path.dirname(__file__)
     out = os.path.join(base, 'report_cards')
-    os.makedirs(out, exist_ok=True)
+    os.makedirs(os.path.join(out, cn), exist_ok=True)
     ORD = ["","1st","2nd","3rd","4th","5th","6th","7th","8th","9th","10th",
            "11th","12th","13th","14th","15th","16th","17th","18th"]
     
@@ -138,7 +138,7 @@ def run(cfg):
     for s in stu:
         nm = s['n']; rnk = rk[nm]
         sf = nm.replace(' ','_').replace("'",'').replace('/','_')
-        fp = os.path.join(out, f"Report_Card_{sf}.xlsx")
+        fp = os.path.join(out, cn, f"Report_Card_{sf}.xlsx")
         
         def mod(wb):
             ws = wb['Report Sheet']

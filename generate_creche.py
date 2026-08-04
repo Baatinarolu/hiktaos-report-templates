@@ -42,6 +42,7 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(BASE, "Hiktaos_Creche_Final.xlsx")
 DATA = os.path.join(BASE, "creche.csv")
 OUT = os.path.join(BASE, "report_cards")
+CLASS_FOLDER = "Creche"
 
 CLASS_NAME = "Creche / Nursery"
 NEXT_CLASS = "Nursery 1"
@@ -169,7 +170,7 @@ def save(path, modify):
 # --------------------------------------------------------------------------- #
 def build_card(s, class_rank, subject_ranks, n_class):
     name = s["n"]
-    path = os.path.join(OUT, "Report_Card_%s.xlsx" % slug(name))
+    path = os.path.join(OUT, CLASS_FOLDER, "Report_Card_%s.xlsx" % slug(name))
 
     total_marks = s["total"]
     avg = round(total_marks / N_SUBJECTS, 1)
@@ -259,7 +260,7 @@ def build_card(s, class_rank, subject_ranks, n_class):
 
 
 def main():
-    os.makedirs(OUT, exist_ok=True)
+    os.makedirs(os.path.join(OUT, CLASS_FOLDER), exist_ok=True)
     students = read_students()
     if not students:
         print("No students found in creche.csv")

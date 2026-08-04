@@ -132,7 +132,9 @@ def save(path, template, modify):
 def build_card(cfg, s, class_rank, subject_ranks, n_class):
     name = s["n"]
     nsubj = len(cfg["subjects"])
-    path = os.path.join(OUT, "Report_Card_%s.xlsx" % slug(name))
+    out_dir = os.path.join(OUT, cfg["name"])
+    os.makedirs(out_dir, exist_ok=True)
+    path = os.path.join(out_dir, "Report_Card_%s.xlsx" % slug(name))
     total_marks = s["total"]
     avg = round(total_marks / nsubj, 1)
     pct = round(total_marks / (nsubj * 100) * 100, 2)
