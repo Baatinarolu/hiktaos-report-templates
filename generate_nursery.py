@@ -70,11 +70,17 @@ N2_SUBJECTS = [("Number Works",28),("Letter Works",29),("Quantitative",30),
     ("Social Habit",35),("Creative Art",36),("Handwriting",37),
     ("Health Habit",38),("Rhymes",39),("Food & Nutrition",40)]
 
+KG_SUBJECTS = [("English",28),("Math",29),("Quantitative",30),("Verbal",31),
+    ("Health Habit",32),("Basic Science",33),("CCA",34),("Food & Nut",35),
+    ("Handwriting",36),("Civic",37),("Social Habit",38),("PHE",39)]
+
 CLASSES = [
     {"name":"Nursery 1","next":"Nursery 2","data":"Nursery1.xlsx",
-     "template":"Hiktaos_Nursery1_Final.xlsx","subjects":N1_SUBJECTS},
+     "template":"Hiktaos_Nursery1_Final.xlsx","summary_start":41,"subjects":N1_SUBJECTS},
     {"name":"Nursery 2","next":"KG","data":"Nursery2.xlsx",
-     "template":"Hiktaos_Nursery2_Final.xlsx","subjects":N2_SUBJECTS},
+     "template":"Hiktaos_Nursery2_Final.xlsx","summary_start":41,"subjects":N2_SUBJECTS},
+    {"name":"KG","next":"Primary 1","data":"KG.xlsx",
+     "template":"Hiktaos_KG_Final.xlsx","summary_start":40,"subjects":KG_SUBJECTS},
 ]
 
 
@@ -168,9 +174,10 @@ def build_card(cfg, s, class_rank, subject_ranks, n_class):
             ws.cell(row=row, column=16).alignment = CENTER
             ws.cell(row=row, column=16).border = THIN
 
-        # left summary rows 41-48 (col G)
-        summary = {41: total_marks, 42: avg, 43: "%s%%" % pct, 44: overall,
-                   45: pos, 46: n_class, 47: credit, 48: gpa}
+        # left summary (col G) starting at class's summary_start row
+        ss = cfg["summary_start"]
+        summary = {ss: total_marks, ss+1: avg, ss+2: "%s%%" % pct, ss+3: overall,
+                   ss+4: pos, ss+5: n_class, ss+6: credit, ss+7: gpa}
         for r, val in summary.items():
             ws.cell(row=r, column=7).value = val
             ws.cell(row=r, column=7).font = F11B
